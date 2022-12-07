@@ -120,23 +120,15 @@
     }
     
     var buildUrl = "Build";
-    var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+    var loaderUrl = buildUrl + "/CrappyBirds_WebGL_01.loader.js";
     var config = {
-      dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
-      frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
-    #if USE_WASM
-      codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
-    #endif
-    #if MEMORY_FILENAME
-      memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
-    #endif
-    #if SYMBOLS_FILENAME
-      symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
-    #endif
+      dataUrl: buildUrl + "/CrappyBirds_WebGL_01.data.unityweb",
+      frameworkUrl: buildUrl + "/CrappyBirds_WebGL_01.framework.js.unityweb",
+      codeUrl: buildUrl + "/CrappyBirds_WebGL_01.wasm.unityweb",
       streamingAssetsUrl: "StreamingAssets",
-      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
-      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
-      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+      companyName: "crappybirds",
+      productName: "Crappy Birds",
+      productVersion: "1.0",
       showBanner: unityShowBanner,
     };
     
@@ -162,9 +154,6 @@
       unityShowBanner('WebGL builds are not supported on mobile devices.');
     }
     
-    #if BACKGROUND_FILENAME
-    canvas.style.background = "url('" + buildUrl + "/{{{ BACKGROUND_FILENAME.replace(/'/g, '%27') }}}') center / cover";
-    #endif
     loadingBar.style.display = "block";
     
     var script = document.createElement("script");
