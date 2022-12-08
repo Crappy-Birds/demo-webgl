@@ -37,7 +37,21 @@
 
 <body>
   <div id="unity-container" class="unity-desktop">
-    <button id="unity-fullscreen-button" onclick="toggleFullscreen()"></button>
+    <button class="open-button" onclick="toggleMenu()"></button>
+    <div class="menu-popup" id="HelpMenu">
+      <div class="menu-container">
+        <h4>Shortcuts:</h4>
+        <p>F11: Fullscreen</p>
+        <p>ESC: Settings</p>
+        <p>CTRL: Emotes</p>
+        <span></span>
+        <h4>Links:</h4>
+        <a href="https://discord.gg/jvJP4YYHFV" target="_blank">Discord</a>
+        <a href="https://twitter.com/crappybirds" target="_blank">Twitter</a>
+        <a href="https://www.crappybirds.io/" target="_blank">Website</a>
+        <a href="https://docs.crappybirds.io/" target="_blank">Docs</a>
+      </div>
+    </div>
     <canvas id="unity-canvas"></canvas>
     <div id="unity-loading-bar">
       <div id="unity-progress-bar-empty">
@@ -175,5 +189,16 @@
     
     document.onfullscreenchange = rebuildFullscreenGUI;
   </script>
+    <script>
+
+      function toggleMenu() {
+        var element = document.getElementById("HelpMenu");
+        if (element.style.display === "none") {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      }
+      </script>
 </body>
 </html>
